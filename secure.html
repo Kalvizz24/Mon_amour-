@@ -13,7 +13,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            background: linear-gradient(to bottom, #1e3c72, #2a5298, #c8102e); /* Dégradé bleu à rouge */
         }
         .container {
             text-align: center;
@@ -24,6 +24,7 @@
             width: 90%;
             max-width: 800px;
             position: relative;
+            overflow: hidden;
         }
         h1 {
             color: #333;
@@ -110,25 +111,13 @@
         <div class="hidden-message hidden" id="hiddenMessage3">Les instants partagés sont des trésors inestimables, gravés dans notre cœur 💫</div>
         <div class="hidden-message hidden" id="hiddenMessage4">L'amour et la joie que nous partageons sont des mélodies intemporelles 🎶</div>
         <div class="hidden-message hidden" id="hiddenMessage5">Ton sourire est un rayon de soleil dans mes jours les plus sombres ☀️</div>
-        <div class="hidden-message hidden" id="hiddenMessage7">Avec toi, chaque jour est une nouvelle aventure pleine de surprises 🌍</div>
-        <div class="hidden-message hidden" id="hiddenMessage8">Tu es la lumière qui éclaire mes chemins les plus obscurs ✨</div>
-        <div class="hidden-message hidden" id="hiddenMessage9">Notre amour est un jardin où chaque moment est une fleur qui éclot 🌸</div>
-        <div class="hidden-message hidden" id="hiddenMessage10">Pensez a toi est une mélodie douce qui berce mon cœur 🎵</div>
-        <div class="hidden-message hidden" id="hiddenMessage11">Nos âmes sont liées par des fils invisibles mais indestructibles 💖</div>
-        <div class="hidden-message hidden" id="hiddenMessage12">Avec toi, l'éternité semble trop courte pour exprimer tout mon amour ⏳</div>
-        <div class="hidden-message hidden" id="hiddenMessage13">Chaque moment passé ensemble est un fragment précieux de notre histoire 🌟</div>
-        <div class="hidden-message hidden" id="hiddenMessage14">Nos souvenirs sont des étoiles scintillantes dans le ciel de nos vies 🌠</div>
-        <div class="hidden-message hidden" id="hiddenMessage15">Les instants partagés sont des trésors inestimables, gravés dans notre cœur 💫</div>
-        <div class="hidden-message hidden" id="hiddenMessage16">L'amour et la joie que nous partageons sont des mélodies intemporelles 🎶</div>
-        <div class="hidden-message hidden" id="hiddenMessage17">Ton sourire est un rayon de soleil dans mes jours les plus sombres ☀️</div>
-        <div class="hidden-message hidden" id="hiddenMessage18">Avec toi, chaque jour est une nouvelle aventure pleine de surprises 🌍</div>
-        <div class="hidden-message hidden" id="hiddenMessage19">Tu es la lumière qui éclaire mes chemins les plus obscurs ✨</div>
-        <div class="hidden-message hidden" id="hiddenMessage20">Notre amour est un jardin où chaque moment est une fleur qui éclot 🌸</div>
-        <div class="hidden-message hidden" id="hiddenMessage21">Pensez a toi est une mélodie douce qui berce mon cœur 🎵</div>
-        <div class="hidden-message hidden" id="hiddenMessage22">Nos âmes sont liées par des fils invisibles mais indestructibles 💖</div>
-        <div class="hidden-message hidden" id="hiddenMessage23">Avec toi, l'éternité semble trop courte pour exprimer tout mon amour ⏳</div>
+        <div class="hidden-message hidden" id="hiddenMessage6">Avec toi, chaque jour est une nouvelle aventure pleine de surprises 🌍</div>
+        <div class="hidden-message hidden" id="hiddenMessage7">Tu es la lumière qui éclaire mes chemins les plus obscurs ✨</div>
+        <div class="hidden-message hidden" id="hiddenMessage8">Notre amour est un jardin où chaque moment est une fleur qui éclot 🌸</div>
+        <div class="hidden-message hidden" id="hiddenMessage9">Penser à toi est une mélodie douce qui berce mon cœur 🎵</div>
+        <div class="hidden-message hidden" id="hiddenMessage10">Nos âmes sont liées par des fils invisibles mais indestructibles 💖</div>
+        <div class="hidden-message hidden" id="hiddenMessage11">Avec toi, l'éternité semble trop courte pour exprimer tout mon amour ⏳</div>
 
-        
         <!-- Formulaire de Mot de Passe -->
         <div class="password-form">
             <form id="passwordForm">
@@ -162,7 +151,7 @@
                     setTimeout(() => {
                         message.classList.remove('hidden');
                         message.classList.add('show');
-                    }, index * 3000); // Augmenter le délai entre chaque message à 3 seconde
+                    }, index * 3000); // Augmenter le délai entre chaque message à 3 secondes
                 });
             } else if (password === 'Kelvin-bg') { // Mot de passe pour accès complet
                 alert('Accès complet accordé');
@@ -172,8 +161,7 @@
                     setTimeout(() => {
                         message.classList.remove('hidden');
                         message.classList.add('show');
-                    }, index * 3000); // Augmenter le délai entre chaque message à 3 seconde
-                    // Aucune action supplémentaire ici, puisque la barre d'émotions a été supprimée
+                    }, index * 3000); // Augmenter le délai entre chaque message à 3 secondes
                 });
             } else {
                 alert('Mot de passe incorrect');
