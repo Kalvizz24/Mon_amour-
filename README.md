@@ -3,7 +3,8 @@
 
 ## Description
 
-Le projet **mES-HUMEUR** est une surprise spéciale dédiée à une personne chère. Il se compose de deux pages web : une page principale et une page sécurisée. La page sécurisée affiche des messages cachés en utilisant un mot de passe spécifique, avec des messages qui défilent en boucle.
+Le projet **Mon_amour-** est une surprise spéciale dédiée à une personne chère. Il se compose de deux pages web : une page principale et une page sécurisée. La page sécurisée affiche des messages cachés en utilisant un mot de passe spécifique, avec des messages qui défilent en boucle.
+
 
 ## Fonctionnalités
 
