@@ -13,7 +13,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(to right, #1e3c72, #2a5298, #c8102e); /* Dégradé bleu à rouge */
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
         }
         .container {
             text-align: center;
@@ -24,7 +24,6 @@
             width: 90%;
             max-width: 800px;
             position: relative;
-            overflow: hidden;
         }
         h1 {
             color: #333;
@@ -42,16 +41,17 @@
             align-items: center;
             font-size: 18px;
             font-weight: bold;
-            opacity: 0;
-            transition: opacity 1s ease;
+            z-index: -1;
+            transition: opacity 0.5s ease;
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
         }
         .hidden-message.show {
+            z-index: 1;
             opacity: 1;
         }
-        .hidden-message.hide {
+        .hidden-message.hidden {
             opacity: 0;
         }
         .password-form {
@@ -103,13 +103,22 @@
 <body>
 
     <div class="container">
-        <h1>Pour toi, mon amour</h1>
+        <h1>Zone Sécurisée</h1>
 
-        <!-- Messages Cachés -->
-        <div class="hidden-message" id="hiddenMessage1">Chaque moment passé ensemble est un fragment précieux de notre histoire 🌟</div>
-        <div class="hidden-message" id="hiddenMessage2">Nos souvenirs sont des étoiles scintillantes dans le ciel de nos vies 🌠</div>
-        <div class="hidden-message" id="hiddenMessage3">Les instants partagés sont des trésors inestimables, gravés dans notre cœur 💫</div>
-        <div class="hidden-message" id="hiddenMessage4">L'amour et la joie que nous partageons sont des mélodies intemporelles 🎶</div>
+      Messages Cachés -->
+        <div class="hidden-message hidden" id="hiddenMessage1">Chaque moment passé ensemble est un fragment précieux de notre histoire 🌟</div>
+        <div class="hidden-message hidden" id="hiddenMessage2">Nos souvenirs sont des étoiles scintillantes dans le ciel de nos vies 🌠</div>
+        <div class="hidden-message hidden" id="hiddenMessage3">Les instants partagés sont des trésors inestimables, gravés dans notre cœur 💫</div>
+        <div class="hidden-message hidden" id="hiddenMessage4">L'amour et la joie que nous partageons sont des mélodies intemporelles 🎶</div>
+        <div class="hidden-message hidden" id="hiddenMessage5">Ton sourire est un rayon de soleil dans mes jours les plus sombres ☀️</div>
+        <div class="hidden-message hidden" id="hiddenMessage7">Avec toi, chaque jour est une nouvelle aventure pleine de surprises 🌍</div>
+        <div class="hidden-message hidden" id="hiddenMessage8">Tu es la lumière qui éclaire mes chemins les plus obscurs ✨</div>
+        <div class="hidden-message hidden" id="hiddenMessage9">Notre amour est un jardin où chaque moment est une fleur qui éclot 🌸</div>
+        <div class="hidden-message hidden" id="hiddenMessage10">Pensez a toi est une mélodie douce qui berce mon cœur 🎵</div>
+        <div class="hidden-message hidden" id="hiddenMessage11">Nos âmes sont liées par des fils invisibles mais indestructibles 💖</div>
+        <div class="hidden-message hidden" id="hiddenMessage12">Avec toi, l'éternité semble trop courte pour exprimer tout mon amour ⏳</div>
+        
+
         
         <!-- Formulaire de Mot de Passe -->
         <div class="password-form">
@@ -131,38 +140,32 @@
     <script>
         const passwordForm = document.getElementById('passwordForm');
         const hiddenMessages = document.querySelectorAll('.hidden-message');
-        let currentIndex = 0;
-        let interval;
-
-        function showNextMessage() {
-            // Masquer le message actuel
-            hiddenMessages[currentIndex].classList.remove('show');
-            hiddenMessages[currentIndex].classList.add('hide');
-
-            // Passer au message suivant
-            currentIndex = (currentIndex + 1) % hiddenMessages.length;
-
-            // Afficher le message suivant
-            hiddenMessages[currentIndex].classList.remove('hide');
-            hiddenMessages[currentIndex].classList.add('show');
-        }
 
         passwordForm.onsubmit = function(event) {
-            event.preventDefault(); // Empêcher le rechargement de la page
-
+            event.preventDefault();
             const password = document.getElementById('password').value;
 
             if (password === 'Mon_amour') { // Mot de passe pour voir les messages
                 alert('Accès aux messages cachés');
-                
-                // Réinitialiser l'index des messages
-                currentIndex = 0;
 
-                // Commencer le défilement des messages
-                interval = setInterval(showNextMessage, 2000); // Changer le message toutes les 2 secondes
+                // Révéler les messages cachés de manière plus lente
+                hiddenMessages.forEach((message, index) => {
+                    setTimeout(() => {
+                        message.classList.remove('hidden');
+                        message.classList.add('show');
+                    }, index * 3000); // Augmenter le délai entre chaque message à 3 seconde
+                });
+            } else if (password === 'Kelvin-bg') { // Mot de passe pour accès complet
+                alert('Accès complet accordé');
 
-                // Masquer le formulaire après validation
-                passwordForm.style.display = 'none';
+                // Révéler les messages cachés de manière plus lente
+                hiddenMessages.forEach((message, index) => {
+                    setTimeout(() => {
+                        message.classList.remove('hidden');
+                        message.classList.add('show');
+                    }, index * 3000); // Augmenter le délai entre chaque message à 3 seconde
+                    // Aucune action supplémentaire ici, puisque la barre d'émotions a été supprimée
+                });
             } else {
                 alert('Mot de passe incorrect');
             }
