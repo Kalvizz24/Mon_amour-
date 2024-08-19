@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zone Sécurisée</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #1e3c72, #2a5298, #c8102e); /* Dégradé bleu à rouge */
+        }
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            color: #333;
+        }
+        .hidden-message {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 1s ease;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .hidden-message.show {
+            opacity: 1;
+        }
+        .hidden-message.hide {
+            opacity: 0;
+        }
+        .password-form {
+            margin-top: 20px;
+        }
+        .password-form input[type="password"] {
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: calc(100% - 32px);
+        }
+        .password-form input[type="submit"] {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #e94e77;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .password-form input[type="submit"]:hover {
+            background-color: #d43f68;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #e94e77;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background-color: #d43f68;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Pour toi, mon amour</h1>
+
+        <!-- Messages Cachés -->
+        <div class="hidden-message" id="hiddenMessage1">Chaque moment passé ensemble est un fragment précieux de notre histoire 🌟</div>
+        <div class="hidden-message" id="hiddenMessage2">Nos souvenirs sont des étoiles scintillantes dans le ciel de nos vies 🌠</div>
+        <div class="hidden-message" id="hiddenMessage3">Les instants partagés sont des trésors inestimables, gravés dans notre cœur 💫</div>
+        <div class="hidden-message" id="hiddenMessage4">L'amour et la joie que nous partageons sont des mélodies intemporelles 🎶</div>
+        
+        <!-- Formulaire de Mot de Passe -->
+        <div class="password-form">
+            <form id="passwordForm">
+                <input type="password" id="password" placeholder="Mot de passe" required>
+                <input type="submit" value="Valider">
+            </form>
+        </div>
+        
+        <!-- Bouton Retour -->
+        <a href="index.html" class="back-button">Retour à la page principale</a>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2024 XXX. Tous droits réservés.</p>
+        </div>
+    </div>
+
+    <script>
+        const passwordForm = document.getElementById('passwordForm');
+        const hiddenMessages = document.querySelectorAll('.hidden-message');
+        let currentIndex = 0;
+        let interval;
+
+        function showNextMessage() {
+            // Masquer le message actuel
+            hiddenMessages[currentIndex].classList.remove('show');
+            hiddenMessages[currentIndex].classList.add('hide');
+
+            // Passer au message suivant
+            currentIndex = (currentIndex + 1) % hiddenMessages.length;
+
+            // Afficher le message suivant
+            hiddenMessages[currentIndex].classList.remove('hide');
+            hiddenMessages[currentIndex].classList.add('show');
+        }
+
+        passwordForm.onsubmit = function(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+
+            if (password === 'Mon_amour') { // Mot de passe pour voir les messages
+                alert('Accès aux messages cachés');
+                
+                // Commencer le défilement des messages
+                interval = setInterval(showNextMessage, 3000); // Changer le message toutes les 3 secondes
+            } else {
+                alert('Mot de passe incorrect');
+            }
+        }
+    </script>
+
+</body>
+</html>
