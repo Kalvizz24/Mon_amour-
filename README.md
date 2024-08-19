@@ -1,4 +1,5 @@
-# mES-HUMEUR
+# Mon_amour-
+
 
 ## Description
 
@@ -17,6 +18,7 @@ Pour utiliser ce projet, suivez ces étapes :
 1. **Clonez le dépôt :**
 
    ```bash
-   git clone https://github.com/Kalvizz24/mES-HUMEUR.git
+   git clone https://github.com/Kalvizz24/Mon_amour-.git
+
 
 Produit sous License MIT voir **License**
