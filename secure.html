@@ -148,14 +148,21 @@
         }
 
         passwordForm.onsubmit = function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Empêcher le rechargement de la page
+
             const password = document.getElementById('password').value;
 
             if (password === 'Mon_amour') { // Mot de passe pour voir les messages
                 alert('Accès aux messages cachés');
                 
+                // Réinitialiser l'index des messages
+                currentIndex = 0;
+
                 // Commencer le défilement des messages
-                interval = setInterval(showNextMessage, 3000); // Changer le message toutes les 3 secondes
+                interval = setInterval(showNextMessage, 2000); // Changer le message toutes les 2 secondes
+
+                // Masquer le formulaire après validation
+                passwordForm.style.display = 'none';
             } else {
                 alert('Mot de passe incorrect');
             }
